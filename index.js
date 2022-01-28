@@ -20,6 +20,8 @@ async function run() {
   for (let account of accounts) {
     await checkIn(account);
     console.log("-----");
+    console.log("等候10秒");
+    await sleep(10000);
   }
 
   const readline = require("readline").createInterface({
@@ -83,4 +85,8 @@ async function checkIn(account) {
   } catch (error) {
     console.log(error);
   }
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
