@@ -20,8 +20,8 @@ async function run() {
   for (let account of accounts) {
     await checkIn(account);
     console.log("-----");
-    console.log("等候5秒");
-    await sleep(5000);
+    console.log("等候10秒");
+    await sleep(10000);
   }
 
   const readline = require("readline").createInterface({
@@ -62,6 +62,8 @@ async function checkIn(account) {
     if (response.data.code !== "1000") {
       return;
     }
+
+    await sleep(1000);
 
     console.log("簽到");
 
