@@ -20,8 +20,8 @@ async function run() {
   for (let account of accounts) {
     await checkIn(account);
     console.log("-----");
-    console.log("等候10秒");
-    await sleep(10000);
+    console.log("等候5秒");
+    await sleep(5000);
   }
 
   const readline = require("readline").createInterface({
@@ -67,13 +67,13 @@ async function checkIn(account) {
 
     const response2 = await axios({
       method: "get",
-      url: "https://activity.originmood.com/act/condOperationRecordLogin",
+      url: "https://activity.originmood.com/activity/dailyClock",
       params: {
-        actId: 933,
+        actId: 1023,
         gamecode: "MLBB",
         comefrom: "web",
         platform: "GD",
-        relaCode: "Sign933",
+        // relaCode: "Sign933",
         timestamp: Date.now(),
       },
       headers: {
