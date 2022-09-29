@@ -66,12 +66,31 @@ async function checkIn(account) {
     await sleep(1000);
 
     console.log("簽到");
-
     const response2 = await axios({
       method: "get",
       url: "https://activity.originmood.com/activity/dailyClock",
       params: {
-        actId: 1023,
+        actId: 1284,
+        gamecode: "MLBB",
+        comefrom: "web",
+        platform: "GD",
+        // relaCode: "Sign933",
+        timestamp: Date.now(),
+      },
+      headers: {
+        Cookie: response.headers["set-cookie"][0],
+      },
+    });
+    console.log(response2.data);
+
+    await sleep(1000);
+
+    console.log("更新簽到資訊");
+    const response3 = await axios({
+      method: "get",
+      url: "https://activity.originmood.com/activity/queryBraveTypeByUserId",
+      params: {
+        actId: 1284,
         gamecode: "MLBB",
         comefrom: "web",
         platform: "GD",
@@ -83,7 +102,28 @@ async function checkIn(account) {
       },
     });
 
-    console.log(response2.data);
+    await sleep(1000);
+
+    console.log("領取每日簽到點數");
+    const response4 = await axios({
+      method: "get",
+      url: "https://activity.originmood.com/activity/receivePrize",
+      params: {
+        actId: 1284,
+        flag: 50,
+        typeId: 29584,
+        type: "daily",
+        gamecode: "MLBB",
+        comefrom: "web",
+        platform: "GD",
+        // relaCode: "Sign933",
+        timestamp: Date.now(),
+      },
+      headers: {
+        Cookie: response.headers["set-cookie"][0],
+      },
+    });
+    console.log(response4.data);
   } catch (error) {
     console.log(error);
   }
