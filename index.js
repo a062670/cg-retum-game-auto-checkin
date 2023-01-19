@@ -70,7 +70,7 @@ async function checkIn(account) {
       method: "get",
       url: "https://activity.originmood.com/activity/dailyClock",
       params: {
-        actId: 1284,
+        actId: 1434,
         gamecode: "MLBB",
         comefrom: "web",
         platform: "GD",
@@ -90,7 +90,7 @@ async function checkIn(account) {
       method: "get",
       url: "https://activity.originmood.com/activity/queryBraveTypeByUserId",
       params: {
-        actId: 1284,
+        actId: 1434,
         gamecode: "MLBB",
         comefrom: "web",
         platform: "GD",
@@ -109,9 +109,9 @@ async function checkIn(account) {
       method: "get",
       url: "https://activity.originmood.com/activity/receivePrize",
       params: {
-        actId: 1284,
+        actId: 1434,
         flag: 50,
-        typeId: 29584,
+        typeId: 147904,
         type: "daily",
         gamecode: "MLBB",
         comefrom: "web",
